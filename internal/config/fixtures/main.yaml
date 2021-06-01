@@ -1,0 +1,29 @@
+http:
+  host: "localhost"
+  port: "8000"
+  maxHeaderBytes: 1
+  readTimeout: 10s
+  writeTimeout: 10s
+
+cache:
+  ttl: 3600s
+
+jwt:
+  accessTokenTTL: 15m
+  refreshTokenTTL: 1h
+  verificationCodeLength: 10
+
+limiter:
+  rps: 10
+  burst: 2
+  ttl: 10m
+
+postgres:
+  username: "postgres"
+  dataBaseName: "test"
+  host: "localhost"
+  port: "5432"
+  ssl: 0
+
+user:
+  passwordTTL: 5m
