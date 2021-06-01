@@ -24,6 +24,7 @@ postgres:
   host: "127.0.0.1"
   port: "5432"
   ssl: 0
+  debug: 0
 
 user:
   passwordTTL: 10m

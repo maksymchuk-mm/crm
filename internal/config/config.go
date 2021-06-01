@@ -37,6 +37,7 @@ type (
 		Password string
 		DbName   string `mapstructure:"dataBaseName"`
 		SSL      bool   `mapstructure:"ssl"`
+		Debug    bool   `mapstructure:"debug"`
 	}
 
 	AuthConfig struct {

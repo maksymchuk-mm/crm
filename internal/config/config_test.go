@@ -15,6 +15,7 @@ func TestInit(t *testing.T) {
 		postgresUserName string
 		postgresPassword string
 		postgresSSL      bool
+		postgresDebug    bool
 		passwordTTL      time.Duration
 
 		jwtSigningKey string
@@ -51,6 +52,7 @@ func TestInit(t *testing.T) {
 					postgresUserName: "postgres",
 					postgresPassword: "postgres",
 					postgresSSL:      false,
+					postgresDebug:    true,
 					jwtSigningKey:    "key",
 					host:             "localhost",
 					appEnv:           "local",
@@ -67,6 +69,7 @@ func TestInit(t *testing.T) {
 					Password: "postgres",
 					SSL:      false,
 					DbName:   "test",
+					Debug:    true,
 				},
 				HTTP: HTTPConfig{
 					Host:               "localhost",
