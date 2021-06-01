@@ -10,14 +10,13 @@ type Wallet struct {
 }
 
 type Card struct {
-	ID          uint64        `gorm:"primaryKey;index" json:"-"`
-	Name        string        `gorm:"not null" json:"name"`
-	CurrencyID  uint          `gorm:"not null;constraint:OnDelete:CASCADE;" json:"-"`
-	Currency    *Currency     `gorm:"foreignKey:UserID" json:"-"`
-	Balance     int64         `gorm:"default:0" json:"balance"`
-	UpdatedAt   time.Time     `gorm:"index;autoUpdateTime" json:"updatedAt"`
-	Transaction []Transaction `gorm:"many2many:card_transactions;" json:"transaction"`
-	Closed      bool          `gorm:"default:false" json:"closed"`
+	ID         uint64    `gorm:"primaryKey;index" json:"-"`
+	Name       string    `gorm:"not null" json:"name"`
+	CurrencyID uint      `gorm:"not null;constraint:OnDelete:CASCADE;" json:"-"`
+	Currency   *Currency `gorm:"foreignKey:UserID" json:"-"`
+	Balance    int64     `gorm:"default:0" json:"balance"`
+	UpdatedAt  time.Time `gorm:"index;autoUpdateTime" json:"updatedAt"`
+	Closed     bool      `gorm:"default:false" json:"closed"`
 }
 
 type Currency struct {
