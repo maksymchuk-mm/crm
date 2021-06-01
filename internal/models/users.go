@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/pborman/uuid"
+	"github.com/google/uuid"
 	"time"
 )
 
