@@ -6,7 +6,7 @@ import (
 )
 
 type User struct {
-	ID           uint64    `gorm:"primarykey;index" json:"-"`
+	ID           uint64    `gorm:"primaryKey;index" json:"-"`
 	PublicUserID uuid.UUID `gorm:"not null;index;type:uuid;default:uuid_generate_v4()" json:"publicUserID"`
 	TelegramID   int64     `gorm:"uniqueIndex;not null" json:"telegramID"`
 	PasswordID   uint64    `gorm:"constraint:OnDelete:CASCADE;" json:"-"`
@@ -14,7 +14,7 @@ type User struct {
 }
 
 type Password struct {
-	ID          uint64    `gorm:"primarykey;index" json:"-"`
+	ID          uint64    `gorm:"primaryKey;index" json:"-"`
 	ExpiredDate time.Time `gorm:"not null" json:"expiredDate"`
 	Password    string    `gorm:"not null" json:"password"`
 	IsValid     bool      `gorm:"default:false" json:"isValid"`
