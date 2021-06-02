@@ -23,7 +23,7 @@ func TestCard(t *testing.T) {
 				UpdatedAt:    time.Now(),
 				Closed:       false,
 			},
-			want: "₴ 1 523,00",
+			want: "₴ 1 523,64",
 		},
 		{
 			name: "USD",
@@ -35,7 +35,7 @@ func TestCard(t *testing.T) {
 				UpdatedAt:    time.Now(),
 				Closed:       false,
 			},
-			want: "$ 1,523.00",
+			want: "$ 1,523.64",
 		},
 		{
 			name: "EUR",
@@ -47,7 +47,7 @@ func TestCard(t *testing.T) {
 				UpdatedAt:    time.Now(),
 				Closed:       false,
 			},
-			want: "€ 1.523,00",
+			want: "€ 1.523,64",
 		},
 		{
 			name: "GBR",
@@ -59,7 +59,7 @@ func TestCard(t *testing.T) {
 				UpdatedAt:    time.Now(),
 				Closed:       false,
 			},
-			want: "₴ 1 523,00",
+			want: "₴ 1 523,64",
 		},
 	}
 	for _, test := range tests {

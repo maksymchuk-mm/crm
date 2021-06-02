@@ -1,10 +1,7 @@
 package models
 
 import (
-	"golang.org/x/text/currency"
-	"golang.org/x/text/language"
-	"golang.org/x/text/message"
-	"golang.org/x/text/number"
+	"github.com/maksymchuk-mm/crm/pkg/utils"
 	"time"
 )
 
@@ -25,21 +22,5 @@ type Card struct {
 }
 
 func (c *Card) FormatBalance() string {
-	tag := getCurrencyTag(c.CurrencyCode)
-	cur, _ := currency.FromTag(tag)
-	scale, _ := currency.Cash.Rounding(cur)
-	dec := number.Decimal(c.Balance/100, number.Scale(scale))
-	p := message.NewPrinter(tag)
-	return p.Sprintf("%v %#v", currency.Symbol(cur), dec)
-}
-
-func getCurrencyTag(s string) language.Tag {
-	switch s {
-	case "USD":
-		return language.MustParse("en")
-	case "EUR":
-		return language.MustParse("eu")
-	default:
-		return language.MustParse("uk")
-	}
+	return utils.CurrencyFormat(c.CurrencyCode, c.Balance)
 }

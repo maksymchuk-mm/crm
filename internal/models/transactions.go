@@ -1,6 +1,9 @@
 package models
 
-import "time"
+import (
+	"github.com/maksymchuk-mm/crm/pkg/utils"
+	"time"
+)
 
 const (
 	TypeIncomeOperations = 1000
@@ -19,6 +22,12 @@ type Transaction struct {
 	CreatedAt   time.Time `gorm:"index;autoCreateTime" json:"createdAt"`
 	UpdatedAt   time.Time `gorm:"index;autoUpdateTime" json:"updatedAt"`
 	Description string    `json:"description"`
+}
+
+// TODO: Maybe need table Category for transactions
+
+func (t *Transaction) FormatAmount() string {
+	return utils.CurrencyFormat(t.Card.CurrencyCode, t.Amount)
 }
 
 type Type struct {
