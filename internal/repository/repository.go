@@ -1,8 +1,9 @@
-package postgre
+package repository
 
 import (
 	"github.com/google/uuid"
 	"github.com/maksymchuk-mm/crm/internal/models"
+	"github.com/maksymchuk-mm/crm/pkg/schemas"
 	"gorm.io/gorm"
 )
 
@@ -18,25 +19,21 @@ type Wallet interface {
 	GetByPublicID(publicID uuid.UUID) (*models.Wallet, error)
 }
 
-type Card interface {
-}
-
 type Transactions interface {
-}
-
-type Type interface {
+	Create(trns []models.Transaction) ([]models.Transaction, error)
+	GetUserTransactions(publicID uuid.UUID, pagination *schemas.Pagination) (*schemas.Pagination, error)
+	GetUserLastTransactions(publicID uuid.UUID) ([]models.Transaction, error)
 }
 
 type Repositories struct {
 	User         User
 	Wallet       Wallet
-	Card         Card
 	Transactions Transactions
-	Type         Type
 }
 
 func NewRepositories(db *gorm.DB) *Repositories {
 	return &Repositories{
-		User: NewUserRepo(db),
+		User:   NewUserRepo(db),
+		Wallet: NewWalletRepo(db),
 	}
 }

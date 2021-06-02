@@ -1,4 +1,4 @@
-package postgre
+package repository
 
 import (
 	"github.com/google/uuid"

@@ -1,4 +1,4 @@
-package postgre
+package repository
 
 import (
 	"github.com/google/uuid"
@@ -34,7 +34,7 @@ func (r *UserRepo) Create(telegramID int64, password string) (*models.User, erro
 	return user, nil
 }
 
-// Get user by telegramID
+// Get user by telegram ID
 func (r *UserRepo) Get(telegramID int64) (*models.User, error) {
 	var user models.User
 	if err := r.db.Joins("Password").First(&user, "users.telegram_id = ?", telegramID).Error; err != nil {
