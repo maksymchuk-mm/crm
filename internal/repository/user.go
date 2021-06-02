@@ -23,9 +23,9 @@ func (r *UserRepo) Create(telegramID int64, password string) (*models.User, erro
 	user := &models.User{
 		TelegramID: telegramID,
 		Password: &models.Password{
-			ExpiredDate: getPasswordExpireTime(),
-			Password:    password,
-			IsValid:     true,
+			ExpiredAt: getPasswordExpireTime(),
+			Password:  password,
+			IsValid:   true,
 		},
 	}
 	if err := r.db.FirstOrCreate(&user).Error; err != nil {
@@ -50,4 +50,8 @@ func (r *UserRepo) GetByPublicID(publicID uuid.UUID) (*models.User, error) {
 		return nil, err
 	}
 	return &user, nil
+}
+
+func (r *UserRepo) SetSession(session models.Session) error {
+	return r.db.Create(&session).Error
 }

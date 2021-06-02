@@ -3,6 +3,7 @@ module github.com/maksymchuk-mm/crm
 go 1.16
 
 require (
+	bitbucket.org/gomatrix/customlogger v1.1.4 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/fsnotify/fsnotify v1.4.7 // indirect
 	github.com/gin-gonic/gin v1.7.2 // indirect

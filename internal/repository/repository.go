@@ -11,6 +11,7 @@ type User interface {
 	Create(telegramID int64, password string) (*models.User, error)
 	Get(telegramID int64) (*models.User, error)
 	GetByPublicID(publicID uuid.UUID) (*models.User, error)
+	SetSession(session models.Session) error
 }
 
 type Wallet interface {

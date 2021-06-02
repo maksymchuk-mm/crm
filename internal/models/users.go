@@ -14,12 +14,18 @@ type User struct {
 }
 
 type Password struct {
-	ID          uint64    `gorm:"primaryKey;index" json:"-"`
-	ExpiredDate time.Time `gorm:"not null" json:"expiredDate"`
-	Password    string    `gorm:"not null" json:"password"`
-	IsValid     bool      `gorm:"default:false" json:"isValid"`
+	ID        uint64    `gorm:"primaryKey;index" json:"-"`
+	ExpiredAt time.Time `gorm:"not null" json:"expiredAt"`
+	Password  string    `gorm:"not null" json:"password"`
+	IsValid   bool      `gorm:"default:false" json:"isValid"`
 }
 
 func (p *Password) Validate() bool {
-	return p.IsValid && time.Until(p.ExpiredDate) > 0
+	return p.IsValid && time.Until(p.ExpiredAt) > 0
+}
+
+type Session struct {
+	ID           int64     `gorm:"primaryKey;index" json:"-"`
+	RefreshToken string    `gorm:"not null;index;" json:"refreshToken"`
+	ExpiredAt    time.Time `gorm:"index;" json:"expiredAt"`
 }
