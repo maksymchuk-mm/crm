@@ -21,5 +21,5 @@ type Password struct {
 }
 
 func (p *Password) Validate() bool {
-	return p.IsValid && p.ExpiredDate.Sub(time.Now()).Seconds() > 0
+	return p.IsValid && time.Until(p.ExpiredDate) > 0
 }

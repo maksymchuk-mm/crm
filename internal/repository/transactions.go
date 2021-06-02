@@ -58,7 +58,7 @@ func (r *TransactionRepo) GetUserTransactions(publicID uuid.UUID, pagination *sc
 		return nil, err
 	}
 	pagination.TotalRows = totalRows
-	totalPages = int(math.Ceil(float64(totalRows)) / float64(pagination.Limit))
+	totalPages = int(math.Ceil(float64(totalRows) / float64(pagination.Limit)))
 	if pagination.Page == 1 {
 		fromRow = 1
 		toRow = pagination.Limit
