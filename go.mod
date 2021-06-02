@@ -6,6 +6,7 @@ require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/fsnotify/fsnotify v1.4.7 // indirect
 	github.com/gin-gonic/gin v1.7.2 // indirect
+	github.com/golang/mock v1.5.0 // indirect
 	github.com/google/uuid v1.2.0 // indirect
 	github.com/magiconair/properties v1.8.1 // indirect
 	github.com/spf13/viper v1.7.1 // indirect
