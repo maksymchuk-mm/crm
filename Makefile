@@ -10,4 +10,4 @@ test:
 	make test.coverage
 
 lint:
-	golangci-lint run
+	golangci-lint --version && golangci-lint run
